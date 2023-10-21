@@ -17,7 +17,8 @@ class VehicleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->streetName(),
+            'plate' => fake()->numberBetween(1000, 9999) . fake()->countryCode,
         ];
     }
 }

@@ -3,6 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Company;
+use App\Models\Customer;
+use App\Models\Driver;
+use App\Models\Load;
+use App\Models\Location;
+use App\Models\Manager;
+use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +20,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Company::factory(10)
+            ->has(Manager::factory()->count(2))
+            ->has(Vehicle::factory()->count(5))
+            ->has(Driver::factory()->count(10))
+            ->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Customer::factory(100)->create();
+        Location::factory(10)->create();
+
+        User::factory(10)->create();
     }
 }

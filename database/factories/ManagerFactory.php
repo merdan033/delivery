@@ -11,13 +11,15 @@ class ManagerFactory extends Factory
 {
     /**
      * Define the model's default state.
-     *
+     *d
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            //
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'phone' => fake()->phoneNumber(),
         ];
     }
 }
